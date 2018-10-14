@@ -1,0 +1,34 @@
+{
+    "name": "eiffel",
+    "displayName": "Eiffel",
+    "description": "EIFFEL",
+    "version": "0.0.1",
+    "publisher": "AnonymousInnopolisStudent",
+    "engines": {
+        "vscode": "^1.27.0"
+    },
+    "categories": [
+        "Programming Languages",
+        "Themes"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "eiffel",
+            "aliases": ["Eiffel", "eiffel"],
+            "extensions": [".e"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "eiffel",
+            "scopeName": "source.eiffel",
+            "path": "./syntaxes/eiffel.tmLanguage.json"
+        }],
+        "themes": [
+            {
+                "label": "Eiffel",
+                "uiTheme": "vs-dark",
+                "path": "./themes/Eiffel-color-theme.json"
+            }
+        ]
+    }
+}

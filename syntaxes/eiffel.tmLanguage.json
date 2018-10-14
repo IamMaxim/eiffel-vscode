@@ -1,0 +1,129 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "Eiffel",
+	"patterns": [
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#strings"
+		},
+		{
+			"include": "#comments"
+		},
+		{
+			"include": "#class-declaration"
+		},
+		{
+			"include": "#class-inherit"
+		},
+		{
+			"include": "#class-create"
+		},
+		{
+			"include": "#feature-declaration"
+		}
+	],
+	"repository": {
+		"keywords": {
+			"patterns": [
+				{
+					"name": "keyword.control.eiffel",
+					"match": "\\b(if|then|else|from|until|loop|across|not|and|or|as)\\b"
+				},
+				{
+					"name": "keyword.eiffel",
+					"match": "\\b(do|local|begin|end|feature|note|require|ensure|invariant)\\b"
+				}
+			]
+		},
+		"strings": {
+			"name": "string.quoted.double.eiffel",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.eiffel",
+					"match": "\\\\."
+				}
+			]
+		},
+		"comments": {
+			"name": "comment.singleline",
+			"begin": "\\-\\-",
+			"end": "\n"
+		},
+		"class-declaration": {
+			"name": "class-declaration.eiffel",
+			"begin": "(class)\\b",
+			"end": "(\\w+)\\b",
+			"beginCaptures": {
+				"1": {
+					"name": "keyword.eiffel",
+					"match": "\\\\."
+				}
+			},
+			"endCaptures": {
+				"1": {
+					"name": "entity.name.class.eiffel",
+					"match": "\\\\."
+				}
+			}
+		},
+		"class-inherit": {
+			"name": "class-declaration.eiffel",
+			"begin": "(inherit)\\b",
+			"end": "(\\w+)\\b",
+			"beginCaptures": {
+				"1": {
+					"name": "keyword.eiffel",
+					"match": "\\\\."
+				}
+			},
+			"endCaptures": {
+				"1": {
+					"name": "entity.name.class.eiffel",
+					"match": "\\\\."
+				}
+			}
+		},
+		"class-create": {
+			"name": "class-declaration.eiffel",
+			"begin": "(create)\\b",
+			"end": "\\b(\\w+)\\b",
+			"beginCaptures": {
+				"1": {
+					"name": "keyword.eiffel",
+					"match": "\\\\."
+				}
+			},
+			"endCaptures": {
+				"1": {
+					"name": "entity.name.function.eiffel",
+					"match": "\\\\."
+				}
+			}
+		},
+		"feature-declaration": {
+			"name": "feature-declaration-clause.eiffel",
+			"begin": "(\\w+\\s*(\\s*,\\s*\\w+)*)((\\(.*\\))\\s*|((\\:\\s*)((\\w+)?)))+\\s*\n",
+			"end": "",
+			"beginCaptures": {
+				"1": {
+					"name": "entity.name.function.eiffel",
+					"match": "\\\\."
+				},
+				"7": {
+					"name": "entity.name.class.eiffel",
+					"match": "\\\\."
+				}
+			},
+			"patterns": [
+				{
+					"include": "#strings"
+				}
+			]
+		}
+	},
+	"scopeName": "source.eiffel"
+}
